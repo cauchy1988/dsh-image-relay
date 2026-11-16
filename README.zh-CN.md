@@ -31,7 +31,7 @@ English | [简体中文](README.zh-CN.md)
 
 ```sh
 # 在你的 DSH profile 目录（~/.dsh/profiles/<profile>）
-pnpm add dsh-image-relay
+pnpm add github:cauchy1988/dsh-image-relay   # npm 包发布后可改为: pnpm add dsh-image-relay
 ```
 
 并把 bundle 加进 profile 的 `package.json`：

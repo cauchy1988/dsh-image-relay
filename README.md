@@ -33,7 +33,7 @@ Requires [DeepSeek Harness](https://github.com/deepseek-ai) (Desktop or Web prof
 
 ```sh
 # in your DSH profile directory (~/.dsh/profiles/<profile>)
-pnpm add dsh-image-relay
+pnpm add github:cauchy1988/dsh-image-relay   # or: pnpm add dsh-image-relay once published on npm
 ```
 
 Add the bundle to the profile's `package.json`:
