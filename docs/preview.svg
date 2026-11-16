@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="dsh-image-relay preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1224"/>
+      <stop offset="1" stop-color="#1b2745"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f7cff"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="16" fill="url(#bg)"/>
+  <text x="40" y="64" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="30" font-weight="700" fill="#f3f6ff">dsh-image-relay</text>
+  <text x="40" y="94" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#9fb0d9">Give text-only DeepSeek Harness models eyes.</text>
+
+  <!-- image card -->
+  <g transform="translate(48,140)">
+    <rect width="150" height="110" rx="10" fill="#0a0f1f" stroke="#2c3a63"/>
+    <rect x="16" y="16" width="118" height="52" rx="6" fill="#223055"/>
+    <circle cx="40" cy="34" r="8" fill="#f5c26b"/>
+    <path d="M22 62 L52 38 L76 58 L96 44 L128 62 Z" fill="#4f7cff" opacity="0.7"/>
+    <rect x="16" y="78" width="86" height="6" rx="3" fill="#3d4d78"/>
+    <rect x="16" y="90" width="60" height="6" rx="3" fill="#3d4d78"/>
+    <text x="75" y="106" text-anchor="middle" font-family="monospace" font-size="11" fill="#7f8db4">image block</text>
+  </g>
+
+  <!-- arrow -->
+  <g transform="translate(212,186)">
+    <rect width="86" height="8" rx="4" fill="url(#accent)"/>
+    <path d="M290 -7 L312 -3 L290 1 Z" transform="translate(-12,4)" fill="#22d3ee"/>
+    <text x="43" y="-12" text-anchor="middle" font-family="monospace" font-size="11" fill="#22d3ee">vision model</text>
+  </g>
+
+  <!-- text card -->
+  <g transform="translate(312,140)">
+    <rect width="150" height="110" rx="10" fill="#0a0f1f" stroke="#2c3a63"/>
+    <rect x="16" y="18" width="118" height="6" rx="3" fill="#3d4d78"/>
+    <rect x="16" y="32" width="104" height="6" rx="3" fill="#3d4d78"/>
+    <rect x="16" y="46" width="96" height="6" rx="3" fill="#3d4d78"/>
+    <rect x="16" y="66" width="118" height="26" rx="6" fill="#123055"/>
+    <text x="75" y="84" text-anchor="middle" font-family="monospace" font-size="10" fill="#7fd6f2">[image relay: …]</text>
+    <text x="75" y="106" text-anchor="middle" font-family="monospace" font-size="11" fill="#7f8db4">text blocks</text>
+  </g>
+
+  <!-- bottom strip -->
+  <g transform="translate(48,286)">
+    <rect width="544" height="40" rx="8" fill="#0a0f1f" stroke="#2c3a63"/>
+    <text x="16" y="25" font-family="monospace" font-size="12" fill="#8ff0c0">glm-4.6v describes → glm-5.3 answers</text>
+    <text x="528" y="25" text-anchor="end" font-family="monospace" font-size="12" fill="#7f8db4">cached · retries · cross-provider</text>
+  </g>
+</svg>

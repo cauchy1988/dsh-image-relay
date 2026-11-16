@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Image Relay · dsh-image-relay",
+    "description": "Give text-only models eyes: a vision model describes each image before the request leaves your machine, and the description is relayed as text. Supports per-model forced replacement, cross-provider vision models, persistent per-hash caching, concurrent relay, and retries. Covers chat attachments and read_image tool results.",
+    "detail": "docs/DETAIL.md"
+  }
+}

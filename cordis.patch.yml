@@ -1,0 +1,8 @@
+- insert:
+    - id: image-relay
+      name: 'dsh-image-relay'
+      config:
+        enabled: true
+        # Defaults fit most setups; see docs/DETAIL.md for every key:
+        # relayFor / always, visionProvider, visionModel, preferVisionModels,
+        # retries, maxTokens, timeoutMs, prompt.

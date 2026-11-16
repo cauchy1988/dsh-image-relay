@@ -1,0 +1,41 @@
+{
+  "name": "dsh-image-relay",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Give text-only DeepSeek Harness models eyes: images are described by a vision model and relayed as text before the request leaves your machine.",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "vision",
+    "image",
+    "multimodal",
+    "glm",
+    "text-only"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cauchy1988/dsh-image-relay.git"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "LICENSE",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

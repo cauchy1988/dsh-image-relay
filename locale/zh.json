@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "图像转述 · dsh-image-relay",
+    "description": "让只支持文本输入的模型也能“看图”：发送前自动调用视觉模型描述图片，把描述文本转述给当前模型；支持按模型强制替换图片块、跨 provider 视觉模型、按图片哈希的持久化缓存、并发描述与失败重试。覆盖聊天附件图片与 read_image 工具结果。",
+    "detail": "docs/DETAIL.md"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules/
+description-cache.json
+*.log
+.DS_Store
