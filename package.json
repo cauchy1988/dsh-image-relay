@@ -1,8 +1,11 @@
 {
   "name": "dsh-image-relay",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "test": "node --test test/"
+  },
   "description": "Give text-only DeepSeek Harness models eyes: images are described by a vision model and relayed as text before the request leaves your machine.",
   "keywords": [
     "deepseek-harness",

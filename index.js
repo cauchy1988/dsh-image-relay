@@ -98,6 +98,8 @@ export function apply(ctx, config) {
 
   /** attachmentId -> description text; persisted across sessions. */
   const descriptions = loadCache()
+  /** attachmentId -> in-flight description promise; dedupes concurrent calls. */
+  const inFlight = new Map()
   /** `${provider}/${model}` -> boolean image capability. */
   const imageCapability = new Map()
   /** `${provider}` -> vision model id or null. */
@@ -188,12 +190,29 @@ export function apply(ctx, config) {
 
   /**
    * Describe one durable image block through the vision model, with retry.
+   * Concurrent calls for the same attachment share one in-flight promise, so
+   * the same image pasted twice in one batch is described exactly once.
    * @returns description text, or undefined when the call fails; failures fall
    *   back to the harness placeholder rather than failing the turn.
    */
-  async function describeImage(provider, visionModel, block, signal) {
+  function describeImage(provider, visionModel, block, signal) {
     const attachmentId = String(block.attachment?.attachmentId ?? '')
-    if (attachmentId && descriptions.has(attachmentId)) return descriptions.get(attachmentId)
+    if (!attachmentId) return describeImageUncached(provider, visionModel, block, signal)
+    if (descriptions.has(attachmentId)) return Promise.resolve(descriptions.get(attachmentId))
+    const existing = inFlight.get(attachmentId)
+    if (existing !== undefined) return existing
+    const promise = describeImageUncached(provider, visionModel, block, signal)
+      .finally(() => inFlight.delete(attachmentId))
+    inFlight.set(attachmentId, promise)
+    return promise
+  }
+
+  /**
+   * Describe one image, uncached: up to `retries` extra attempts, result
+   * persisted to the description cache on success.
+   */
+  async function describeImageUncached(provider, visionModel, block, signal) {
+    const attachmentId = String(block.attachment?.attachmentId ?? '')
     for (let attempt = 0; ; attempt += 1) {
       try {
         const deadlineSignal = withDeadline(signal, timeoutMs)
@@ -227,7 +246,7 @@ export function apply(ctx, config) {
       } catch (error) {
         log.warn(`image-relay: description attempt ${attempt + 1} failed: ${error?.message ?? error}`)
       }
-      if (attempt >= retries) return undefined
+        if (attempt >= retries) return undefined
     }
   }
 
